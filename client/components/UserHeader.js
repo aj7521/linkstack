@@ -7,7 +7,6 @@ import {toast} from 'react-toastify'
 const UserHeader = () => {
 
     // const {name, role, avatar, handle, links} = data;
-    const supportURL = process.env.RENDER_URL || 'http://localhost:8080'
     const router = useRouter();
     // const handleLogout = ()=>{
     //     localStorage.removeItem('LinkifyToken');
@@ -23,7 +22,7 @@ const UserHeader = () => {
 
     useEffect(()=>{
         if(!localStorage.getItem('LinkifyToken')) return redirect;
-        fetch(`${supportURL}/data/dashboard`, {
+        fetch(`https://linkstack-mern.onrender.com/data/dashboard`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

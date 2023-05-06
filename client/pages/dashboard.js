@@ -7,7 +7,6 @@ import UserContext from "../context/userContext";
 import styles from '../styles/apply.module.css'
 
 const dashboard = () => {
-    const supportURL = process.env.RENDER_URL || 'http://localhost:8080'
     const router = useRouter();
     const [data, setData] = useState({});
     const { setUserData } = useContext(UserContext)
@@ -18,7 +17,7 @@ const dashboard = () => {
 
     useEffect(()=>{
         if(!localStorage.getItem('LinkifyToken')) return redirect;
-        fetch(`${supportURL}/data/dashboard`, {
+        fetch(`https://linkstack-mern.onrender.com/data/dashboard`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

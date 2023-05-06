@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 
 const Apply = () => {
 
-    const supportURL = process.env.RENDER_URL || 'http://localhost:8080'
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -14,7 +13,7 @@ const Apply = () => {
     const handleLogin = (e)=>{
         e.preventDefault();
         // backend here
-        fetch(`${supportURL}/api/login`, {
+        fetch(`https://linkstack-mern.onrender.com/api/login`, {
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

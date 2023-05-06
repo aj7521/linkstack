@@ -4,8 +4,6 @@ import {toast} from 'react-toastify'
 
 const links = () => {
 
-  const supportURL = process.env.RENDER_URL || 'http://localhost:8080'
-
   const [links, setLinks] = useState([{url: '', title: ''}]);
   const [title, setTitle] = useState('');
 
@@ -39,7 +37,7 @@ const links = () => {
       title: titlesArray[index]
     }))
 
-    fetch(`${supportURL}/save/links`, {
+    fetch(`https://linkstack-mern.onrender.com/save/links`, {
       method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -57,7 +55,7 @@ const links = () => {
   
   useEffect(()=>{
     if(!localStorage.getItem('LinkifyToken')) return redirect;
-      fetch(`${supportURL}/load/links`, {
+      fetch(`https://linkstack-mern.onrender.com/load/links`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

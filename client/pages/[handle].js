@@ -7,7 +7,6 @@ import ShareButton from '../components/ShareButton';
 
 const Handle = () => {
 
-    const supportURL = process.env.RENDER_URL || 'http://localhost:8080'
     const router  = useRouter();
     const [data, setData] = useState({});
     const [userFound, setUserFound] = useState(false);
@@ -23,7 +22,7 @@ const Handle = () => {
 
     useEffect(()=>{
         if(router.query?.handle){
-            fetch(`${supportURL}/get/${router.query.handle}`)
+            fetch(`https://linkstack-mern.onrender.com/get/${router.query.handle}`)
             .then(res=>res.json())
             .then(data=>{
                 if(data.status==='error') return toast.error(data.error);
@@ -40,7 +39,7 @@ const Handle = () => {
 
     // useEffect(()=>{
     //     if(router.query?.handle){
-    //         fetch(`${supportURL}/get/socials/${router.query.handle}`)
+    //         fetch(`https://linkstack-mern.onrender.com/get/socials/${router.query.handle}`)
     //         .then(res=>res.json())
     //         .then(data=>{
     //             if(data.status==='error') return toast.error(data.error);

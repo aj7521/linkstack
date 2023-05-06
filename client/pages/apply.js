@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 
 const Apply = () => {
 
-  const supportURL = process.env.RENDER_URL || 'http://localhost:8080'
   const router = useRouter();
   const [handle, setHandle] = useState('');
   const [email, setEmail] = useState('');
@@ -23,7 +22,7 @@ const Apply = () => {
     e.preventDefault();
     if(!category) return toast.error('Select your account type!');
     //backend part
-    fetch(`${supportURL}/api/register`, {
+    fetch(`https://linkstack-mern.onrender.com/api/register`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

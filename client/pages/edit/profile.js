@@ -5,7 +5,6 @@ import UserHeader from '../../components/UserHeader'
 import {toast} from 'react-toastify'
 
 const profile = () => {
-  const supportURL = process.env.RENDER_URL || 'http://localhost:8080'
   const router = useRouter();
   const {userData, setUserData} = useContext(UserContext)
   const [social, setSocial] = useState({
@@ -41,7 +40,7 @@ const profile = () => {
 
   const saveProfile = e =>{
     e.preventDefault();
-    fetch(`${supportURL}/save/profile`, {
+    fetch(`https://linkstack-mern.onrender.com/save/profile`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -61,7 +60,7 @@ const profile = () => {
 
   const saveSocials = e =>{
     e.preventDefault();
-    fetch(`${supportURL}/save/socials`, {
+    fetch(`https://linkstack-mern.onrender.com/save/socials`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -79,7 +78,7 @@ const profile = () => {
 
   useEffect(()=>{
     if(!localStorage.getItem('LinkifyToken')) return redirect;
-      fetch(`${supportURL}/load/socials`, {
+      fetch(`https://linkstack-mern.onrender.com/load/socials`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
