@@ -10,13 +10,8 @@ const {saveSocials, saveProfile, saveLinks} = require('./controllers/saveItems')
 const {loadSocials, loadLinks} = require('./controllers/loadPrevious');
 require('dotenv').config();
 
-const corsOptions = {
-    origin: `https://linkstack-mern.onrender.com`, // frontend URI (ReactJS)
-}
-
 app.use(cors());
 app.use(express.json());
-app.use(cors(corsOptions));
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{console.log('mongoDB Connected')}).catch(err=>{console.log(err.message)});
 

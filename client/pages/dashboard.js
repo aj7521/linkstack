@@ -17,7 +17,7 @@ const dashboard = () => {
 
     useEffect(()=>{
         if(!localStorage.getItem('LinkifyToken')) return redirect;
-        fetch(`https://linkstack-mern.onrender.com/data/dashboard`, {
+        fetch(`http://localhost:8080/data/dashboard`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -37,7 +37,7 @@ const links = () => {
       title: titlesArray[index]
     }))
 
-    fetch(`https://linkstack-mern.onrender.com/save/links`, {
+    fetch(`http://localhost:8080/save/links`, {
       method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -55,7 +55,7 @@ const links = () => {
   
   useEffect(()=>{
     if(!localStorage.getItem('LinkifyToken')) return redirect;
-      fetch(`https://linkstack-mern.onrender.com/load/links`, {
+      fetch(`http://localhost:8080/load/links`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

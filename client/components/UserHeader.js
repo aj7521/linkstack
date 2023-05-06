@@ -22,7 +22,7 @@ const UserHeader = () => {
 
     useEffect(()=>{
         if(!localStorage.getItem('LinkifyToken')) return redirect;
-        fetch(`https://linkstack-mern.onrender.com/data/dashboard`, {
+        fetch(`http://localhost:8080/data/dashboard`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -53,7 +53,7 @@ const UserHeader = () => {
                     </button>
                 </Link>
             </div>
-            <Link href={`https://linkstack.onrender.com/${handle}`}>
+            <Link href={`http://localhost:3000/${handle}`}>
             <div className='flex flex-row'>
                 <div className='flex w-120 mr-5 text-right items-center bg-gray-200 px-5 py-2 rounded-md'>
                     <div className='text-xs md:text-md flex flex-col flex-wrap'>

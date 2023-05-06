@@ -40,7 +40,7 @@ const profile = () => {
 
   const saveProfile = e =>{
     e.preventDefault();
-    fetch(`https://linkstack-mern.onrender.com/save/profile`, {
+    fetch(`http://localhost:8080/save/profile`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -60,7 +60,7 @@ const profile = () => {
 
   const saveSocials = e =>{
     e.preventDefault();
-    fetch(`https://linkstack-mern.onrender.com/save/socials`, {
+    fetch(`http://localhost:8080/save/socials`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -78,7 +78,7 @@ const profile = () => {
 
   useEffect(()=>{
     if(!localStorage.getItem('LinkifyToken')) return redirect;
-      fetch(`https://linkstack-mern.onrender.com/load/socials`, {
+      fetch(`http://localhost:8080/load/socials`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
