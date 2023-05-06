@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "next": "npm i next",
+    "next": "npm i next react react-dom",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
