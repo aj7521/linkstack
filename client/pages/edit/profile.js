@@ -40,7 +40,7 @@ const profile = () => {
 
   const saveProfile = e =>{
     e.preventDefault();
-    fetch(`http://localhost:8080/save/profile`, {
+    fetch(`https://linkstack-server.onrender.com/save/profile`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -60,7 +60,7 @@ const profile = () => {
 
   const saveSocials = e =>{
     e.preventDefault();
-    fetch(`http://localhost:8080/save/socials`, {
+    fetch(`https://linkstack-server.onrender.com/save/socials`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -78,7 +78,7 @@ const profile = () => {
 
   useEffect(()=>{
     if(!localStorage.getItem('LinkifyToken')) return redirect;
-      fetch(`http://localhost:8080/load/socials`, {
+      fetch(`https://linkstack-server.onrender.com/load/socials`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
