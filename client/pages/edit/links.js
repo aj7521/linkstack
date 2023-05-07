@@ -4,6 +4,7 @@ import {toast} from 'react-toastify'
 
 const links = () => {
 
+  var flag = false;
   const [links, setLinks] = useState([{url: '', title: ''}]);
   const [title, setTitle] = useState('');
 
@@ -13,10 +14,6 @@ const links = () => {
     updatedLinks[index] = linkToUpdate;
     setLinks(updatedLinks);
   }
-
-  const redirect = ()=>{
-    router.push('/login');
-}
 
   const handleAddLink = () =>{
     setLinks([...links, {url: '', title: ''}]);
@@ -54,7 +51,11 @@ const links = () => {
   }
   
   useEffect(()=>{
-    if(!localStorage.getItem('LinkifyToken')) return redirect;
+      if(localStorage.getItem('LinkifyToken')==null){
+        router.push('/login');
+        flag = true;
+        return;
+      }
       fetch(`https://linkstack-server.onrender.com/load/links`, {
         method: 'POST',
         headers: {
@@ -69,6 +70,11 @@ const links = () => {
       setLinks(data.links);
     })
   }, [])
+
+  if(flag==true)
+  {
+    toast.error("To access this, you have to login first!");
+  }
 
   return (
     <>

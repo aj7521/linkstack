@@ -8,20 +8,22 @@ const UserHeader = () => {
 
     // const {name, role, avatar, handle, links} = data;
     const router = useRouter();
+    var flag = false;
     // const handleLogout = ()=>{
     //     localStorage.removeItem('LinkifyToken');
     //     router.push('/login');
     // }
 
-    const redirect = ()=>{
-        router.push('/login');
-    }
     
     const { userData, setUserData } = useContext(UserContext)
     const {role, avatar, handle} = userData;
 
     useEffect(()=>{
-        if(!localStorage.getItem('LinkifyToken')) return redirect;
+        if(localStorage.getItem('LinkifyToken')==null){
+            router.push('/login');
+            flag = true;
+            return;
+        }
         fetch(`https://linkstack-server.onrender.com/data/dashboard`, {
             method: 'POST',
             headers: {
@@ -42,6 +44,11 @@ const UserHeader = () => {
         })
     }, [])
 
+    if(flag==true)
+    {
+      toast.error("To access this, you have to login first!");
+    }
+
     return (
         <>
         <header className='flex flex-row justify-between items-center'>
@@ -53,7 +60,7 @@ const UserHeader = () => {
                     </button>
                 </Link>
             </div>
-            <Link href={`/${handle}`}>
+            <Link href={`https://magnificent-travesseiro-de89be.netlify.app/${handle}`}>
             <div className='flex flex-row'>
                 <div className='flex w-120 mr-5 text-right items-center bg-gray-200 px-5 py-2 rounded-md'>
                     <div className='text-xs md:text-md flex flex-col flex-wrap'>

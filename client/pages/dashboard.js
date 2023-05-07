@@ -10,13 +10,14 @@ const dashboard = () => {
     const router = useRouter();
     const [data, setData] = useState({});
     const { setUserData } = useContext(UserContext)
-
-    const redirect = ()=>{
-        router.push('/login');
-    }
-
+    var flag = false;
+    
     useEffect(()=>{
-        if(!localStorage.getItem('LinkifyToken')) return redirect;
+        if(localStorage.getItem('LinkifyToken')==null){
+            router.push('/login');
+            flag = true;
+            return;
+        }
         fetch(`https://linkstack-server.onrender.com/data/dashboard`, {
             method: 'POST',
             headers: {
@@ -39,6 +40,10 @@ const dashboard = () => {
         })
     }, [])
 
+    if(flag==true)
+    {
+        toast.error("To access this, you have to login first!");
+    }
     return (
         <>
         <div className={styles.background + " main min-h-screen"}>

@@ -5,6 +5,7 @@ import UserHeader from '../../components/UserHeader'
 import {toast} from 'react-toastify'
 
 const profile = () => {
+  var flag = false;
   const router = useRouter();
   const {userData, setUserData} = useContext(UserContext)
   const [social, setSocial] = useState({
@@ -19,9 +20,6 @@ const profile = () => {
   const [bio, setBio] = useState('');
   const [avatar, setAvatar] = useState('https://cdn-icons-png.flaticon.com/512/147/147142.png');
 
-  const redirect = ()=>{
-    router.push('/login');
-}
 
   const handleSocial = (e)=>{
     setSocial({
@@ -77,7 +75,11 @@ const profile = () => {
   }
 
   useEffect(()=>{
-    if(!localStorage.getItem('LinkifyToken')) return redirect;
+      if(localStorage.getItem('LinkifyToken')==null){
+        router.push('/login');
+        flag = true;;
+        return;
+      }
       fetch(`https://linkstack-server.onrender.com/load/socials`, {
         method: 'POST',
         headers: {
@@ -92,6 +94,11 @@ const profile = () => {
       setSocial(data.socials);
     })
   }, [])
+
+  if(flag==true)
+  {
+    toast.error("To access this, you have to login first!");
+  }
 
   return (
     <>
