@@ -34,7 +34,7 @@ const links = () => {
       title: titlesArray[index]
     }))
 
-    fetch(`https://linkstack-server.onrender.com/save/links`, {
+    fetch(`https://aj7521.github.io/linkstack/save/links`, {
       method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -56,7 +56,7 @@ const links = () => {
         flag = true;
         return;
       }
-      fetch(`https://linkstack-server.onrender.com/load/links`, {
+      fetch(`https://aj7521.github.io/linkstack/load/links`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

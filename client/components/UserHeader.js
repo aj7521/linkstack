@@ -24,7 +24,7 @@ const UserHeader = () => {
             flag = true;
             return;
         }
-        fetch(`https://linkstack-server.onrender.com/data/dashboard`, {
+        fetch(`https://aj7521.github.io/linkstack/data/dashboard`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -60,7 +60,7 @@ const UserHeader = () => {
                     </button>
                 </Link>
             </div>
-            <Link href={`https://magnificent-travesseiro-de89be.netlify.app/${handle}`}>
+            <Link href={`/${handle}`}>
             <div className='flex flex-row'>
                 <div className='flex w-120 mr-5 text-right items-center bg-gray-200 px-5 py-2 rounded-md'>
                     <div className='text-xs md:text-md flex flex-col flex-wrap'>

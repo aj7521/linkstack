@@ -38,7 +38,7 @@ const profile = () => {
 
   const saveProfile = e =>{
     e.preventDefault();
-    fetch(`https://linkstack-server.onrender.com/save/profile`, {
+    fetch(`https://aj7521.github.io/linkstack/save/profile`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -58,7 +58,7 @@ const profile = () => {
 
   const saveSocials = e =>{
     e.preventDefault();
-    fetch(`https://linkstack-server.onrender.com/save/socials`, {
+    fetch(`https://aj7521.github.io/linkstack/save/socials`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -80,7 +80,7 @@ const profile = () => {
         flag = true;;
         return;
       }
-      fetch(`https://linkstack-server.onrender.com/load/socials`, {
+      fetch(`https://aj7521.github.io/linkstack/load/socials`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

@@ -22,7 +22,7 @@ const Apply = () => {
     e.preventDefault();
     if(!category) return toast.error('Select your account type!');
     //backend part
-    fetch(`https://linkstack-server.onrender.com/api/register`, {
+    fetch(`https://aj7521.github.io/linkstack/api/register`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

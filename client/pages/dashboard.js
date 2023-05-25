@@ -18,7 +18,7 @@ const dashboard = () => {
             flag = true;
             return;
         }
-        fetch(`https://linkstack-server.onrender.com/data/dashboard`, {
+        fetch(`https://aj7521.github.io/linkstack/data/dashboard`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

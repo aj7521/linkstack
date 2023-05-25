@@ -13,7 +13,7 @@ const Apply = () => {
     const handleLogin = (e)=>{
         e.preventDefault();
         // backend here
-        fetch(`https://linkstack-server.onrender.com/api/login`, {
+        fetch(`https://aj7521.github.io/linkstack/api/login`, {
             method: 'POST',
             headers:{
                 'content-type': 'application/json'
